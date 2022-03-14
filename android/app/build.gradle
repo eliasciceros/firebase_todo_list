@@ -48,6 +48,7 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        multiDexEnabled = true
     }
 
     buildTypes {
@@ -75,6 +76,10 @@ dependencies {
 
     // Add the dependencies for any other desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries
+
+    // A java code for help multidex for firebase files that exceed a 64k length .dex file
+    implementation("com.android.support:multidex:1.0.3")
 }
 
+// Google services makes longer process, so making it the last to load
 apply plugin: 'com.google.gms.google-services'
