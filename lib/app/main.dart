@@ -1,10 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_todo_list/app/controllers/todo_controller.dart';
-import 'package:firebase_todo_list/app/views/todo_page.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 
-import 'appBinds.dart';
+import 'app_binds.dart';
+import 'app_routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +25,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: TodoPage(GetIt.instance.get<TodoController>()),
+      initialRoute: initialRoute,
+      onGenerateRoute: appRoutes,
       debugShowCheckedModeBanner: false,
     );
   }

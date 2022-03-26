@@ -9,4 +9,9 @@ class TodoRepository implements ITodoRepository {
 
   @override
   Stream<List<TodoModel>> getTodos() => datasource.getTodos();
+
+  @override
+  Future<void> saveTodo(TodoModel todo) async {
+    await datasource.saveTodo(todo);
+  }
 }

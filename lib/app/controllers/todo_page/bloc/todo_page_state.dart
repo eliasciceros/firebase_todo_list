@@ -1,18 +1,19 @@
-import '../../models/todo_model.dart';
+
+import '../../../models/todo_model.dart';
 
 enum TodoListStatus {initial, loading, success, failure}
 
-class TodoState {
+class TodoPageState {
   late final TodoListStatus status;
   late final Stream<List<TodoModel>> todoList;
 
-  TodoState({this.status = TodoListStatus.initial, this.todoList = const Stream.empty()});
+  TodoPageState({this.status = TodoListStatus.initial, this.todoList = const Stream.empty()});
 
-  TodoState copyWith({
+  TodoPageState copyWith({
     TodoListStatus? status,
     Stream<List<TodoModel>>? todoList,
   })  {
-    return TodoState(
+    return TodoPageState(
       status: status ?? this.status,
       todoList: todoList ?? this.todoList,
     );
